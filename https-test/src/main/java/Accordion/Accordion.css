@@ -1,0 +1,9 @@
+.accordion-item-title-div {
+	border:1px solid;
+	border-radius:3px;
+	background-color:#E8E8E8;
+	margin:1px;
+}
+.accordion-item-title-div:hover {
+	background-color:#99FFFF;
+}
