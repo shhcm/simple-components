@@ -1,8 +1,12 @@
 package Accordion;
 
+import java.io.Serializable;
+
 import org.apache.wicket.markup.html.panel.Panel;
 
-public class AccordionItem {
+public class AccordionItem implements Serializable{
+    
+    private static final long serialVersionUID = 4383657952025874101L;
     private String title;
     private Panel contentPanel;
     

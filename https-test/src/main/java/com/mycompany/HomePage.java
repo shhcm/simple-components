@@ -13,6 +13,9 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.html.WebPage;
 
+import TabbedAjaxPanel.Tab;
+import TabbedAjaxPanel.TabPanel;
+import TabbedAjaxPanel.TabbedAjaxPanel;
 import Accordion.Accordion;
 import Accordion.AccordionItem;
 @RequireHttps
@@ -21,7 +24,15 @@ public class HomePage extends WebPage {
 
     public HomePage(final PageParameters parameters) {
         super(parameters);
-
+        
+        LinkedList<Tab> tabList = new LinkedList<Tab>();
+        tabList.add(new Tab("tab 1", new SomeContentPanel(TabPanel.CONTENT_TAB_ID, "Content of tab 1")));
+        tabList.add(new Tab("tab 2", new SomeContentPanel(TabPanel.CONTENT_TAB_ID, "Content of tab 2")));
+        tabList.add(new Tab("tab 3", new SomeContentPanel(TabPanel.CONTENT_TAB_ID, "Content of tab 3")));
+        TabbedAjaxPanel tabbedAjaxPanel = new TabbedAjaxPanel("tabbed-ajax-panel", tabList);
+        add(tabbedAjaxPanel);
+        
+        
         Label label = new Label("panel-content", "initial content");
         // Create a container element whose content will be modifed via ajax.
         // The element must be final, because it is accessed from within an inner class,
