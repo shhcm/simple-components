@@ -10,8 +10,6 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.resource.CssResourceReference;
 
-import Accordion.Accordion;
-
 public class TabbedAjaxPanel extends Panel{
     
     private static final long serialVersionUID = -4310551046617566060L;
@@ -30,12 +28,12 @@ public class TabbedAjaxPanel extends Panel{
                 AjaxLink<Void> ajaxLink = new AjaxLink<Void>("tab-ajax-link-link") {
 
                     private static final long serialVersionUID = 1L;
-
                     @Override
                     public void onClick(AjaxRequestTarget target) {
                         tabPanel.remove("content-tab");
                         tabPanel.add(item.getModelObject().getTabContentPanel());
                         target.add(tabPanel);
+                        
                     }
                 };
                 Label label = new Label("tab-ajax-link-label", item.getModelObject().getTabName());
