@@ -18,6 +18,7 @@ import TabbedAjaxPanel.TabPanel;
 import TabbedAjaxPanel.TabbedAjaxPanel;
 import Accordion.Accordion;
 import Accordion.AccordionItem;
+import Accordion.AccordionPanel;
 @RequireHttps
 public class HomePage extends WebPage {
     private static final long serialVersionUID = 1L;
@@ -26,13 +27,13 @@ public class HomePage extends WebPage {
         super(parameters);
         
         LinkedList<Tab> tabList = new LinkedList<Tab>();
-        tabList.add(new Tab("tab 1", new SomeContentPanel(TabPanel.CONTENT_TAB_ID, "Content of tab 1")));
-        tabList.add(new Tab("tab 2", new SomeContentPanel(TabPanel.CONTENT_TAB_ID, "Content of tab 2")));
-        tabList.add(new Tab("tab 3", new SomeContentPanel(TabPanel.CONTENT_TAB_ID, "Content of tab 3")));
+        tabList.add(new Tab("tab 1", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 1\nContent of tab 1\nContent of tab 1\n")));
+        tabList.add(new Tab("tab 2", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 2\nContent of tab 2\nContent of tab 2\nContent of tab 2\n")));
+        tabList.add(new Tab("tab 3", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 3\nContent of tab 3\nContent of tab 3\n")));
         TabbedAjaxPanel tabbedAjaxPanel = new TabbedAjaxPanel("tabbed-ajax-panel", tabList);
         add(tabbedAjaxPanel);
         
-        
+        /*
         Label label = new Label("panel-content", "initial content");
         // Create a container element whose content will be modifed via ajax.
         // The element must be final, because it is accessed from within an inner class,
@@ -54,12 +55,12 @@ public class HomePage extends WebPage {
         panel.add(label);
         add(panel);
         add(ajaxLink);
-        
+        */
         // Accordion Component.
         LinkedList<AccordionItem> accordionItems = new LinkedList<AccordionItem>();
         for(int i = 0; i < 20; i++) {
             // Create some content panels
-            Panel contentPanel = new MyPanel(Accordion.CONTENT_ID);
+            Panel contentPanel = new MyPanel(AccordionPanel.CONTENT_ID);
             Label repeatedLabel = new Label("panel-content", "repeatedPanel " + i);
             contentPanel.add(repeatedLabel);
             accordionItems.add(new AccordionItem("title " + i, contentPanel));
@@ -73,5 +74,6 @@ public class HomePage extends WebPage {
     public void renderHead(IHeaderResponse response) {
         response.render(JavaScriptReferenceHeaderItem.forReference(Accordion.getJavascriptForHeader()));
         response.render(CssReferenceHeaderItem.forReference(Accordion.getCssForHeader()));
+        response.render(CssReferenceHeaderItem.forReference(TabbedAjaxPanel.getCssForHeader()));
     }
 }
