@@ -2,7 +2,7 @@
     <body>
         <wicket:panel>
             
-            <div class="tabbed-ajax-panel">
+            <div class="tabbed-ajax-panel" id="">
                 <span
                 class="tabbed-ajax-panel-tab-link-span"
                 wicket:id="tabbed-ajax-panel-tab-link">
@@ -14,10 +14,27 @@
             <div class="tabbed-ajax-panel-content-div" wicket:id="tabbed-ajax-panel-content">
             </div>
         
-            <script type="text/javascript">
+            <script type="text/javascript" id="">
+                $('.tabbed-ajax-panel').children('.tabbed-ajax-panel-tab-link-span').first().css('background-color', '#EFF7FC');
                 $('.tab-ajax-link-label').click(function() {
                     $(this).parents('.tabbed-ajax-panel').children('.tabbed-ajax-panel-tab-link-span').css('background-color', '#C0E2F8');
                     $(this).parents('.tabbed-ajax-panel-tab-link-span').css('background-color', '#EFF7FC');
+                    $(this).parents('.tabbed-ajax-panel').children('.tabbed-ajax-panel-tab-link-span').hover(
+                        function() {
+                            $(this).css('background-color','#F0EE58');
+                        },
+                        function() {
+                            $(this).css('background-color','#C0E2F8');
+                        }
+                    );
+                    $(this).parents('.tabbed-ajax-panel-tab-link-span').hover(
+                        function() {
+                            $(this).css('background-color','#F0EE58');
+                        },
+                        function() {
+                            $(this).css('background-color','#EFF7FC');
+                        }
+                    );
                  });
             </script>
         </wicket:panel>
