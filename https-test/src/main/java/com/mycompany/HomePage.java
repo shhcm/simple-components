@@ -4,8 +4,6 @@ import java.util.LinkedList;
 
 import org.apache.wicket.protocol.https.RequireHttps;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptReferenceHeaderItem;
 import org.apache.wicket.markup.head.CssReferenceHeaderItem;
@@ -30,6 +28,7 @@ public class HomePage extends WebPage {
         tabList.add(new Tab("tab 1", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 1\nContent of tab 1\nContent of tab 1\n")));
         tabList.add(new Tab("tab 2", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 2\nContent of tab 2\nContent of tab 2\nContent of tab 2\n")));
         tabList.add(new Tab("tab 3", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 3\nContent of tab 3\nContent of tab 3\n")));
+        tabList.get(0).setHighlighted(true);
         TabbedAjaxPanel tabbedAjaxPanel = new TabbedAjaxPanel("tabbed-ajax-panel", tabList);
         add(tabbedAjaxPanel);
         

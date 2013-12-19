@@ -1,11 +1,10 @@
 <html>
     <body>
         <wicket:panel>
-            
-            <div class="tabbed-ajax-panel" id="">
+            <div class="tabbed-ajax-panel">
                 <span
-                class="tabbed-ajax-panel-tab-link-span"
-                wicket:id="tabbed-ajax-panel-tab-link">
+                class=""
+                wicket:id="tabbed-ajax-panel-tab-span">
                     <a class="tab-ajax-link-link" wicket:id="tab-ajax-link-link" href="">
                         <span class="tab-ajax-link-label" wicket:id="tab-ajax-link-label"/>
                     </a>
@@ -13,30 +12,6 @@
             </div>
             <div class="tabbed-ajax-panel-content-div" wicket:id="tabbed-ajax-panel-content">
             </div>
-        
-            <script type="text/javascript" id="">
-                $('.tabbed-ajax-panel').children('.tabbed-ajax-panel-tab-link-span').first().css('background-color', '#EFF7FC');
-                $('.tab-ajax-link-label').click(function() {
-                    $(this).parents('.tabbed-ajax-panel').children('.tabbed-ajax-panel-tab-link-span').css('background-color', '#C0E2F8');
-                    $(this).parents('.tabbed-ajax-panel-tab-link-span').css('background-color', '#EFF7FC');
-                    $(this).parents('.tabbed-ajax-panel').children('.tabbed-ajax-panel-tab-link-span').hover(
-                        function() {
-                            $(this).css('background-color','#F0EE58');
-                        },
-                        function() {
-                            $(this).css('background-color','#C0E2F8');
-                        }
-                    );
-                    $(this).parents('.tabbed-ajax-panel-tab-link-span').hover(
-                        function() {
-                            $(this).css('background-color','#F0EE58');
-                        },
-                        function() {
-                            $(this).css('background-color','#EFF7FC');
-                        }
-                    );
-                 });
-            </script>
         </wicket:panel>
     </body>
 </html>
