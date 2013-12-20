@@ -25,11 +25,15 @@ public class HomePage extends WebPage {
         super(parameters);
         
         LinkedList<Tab> tabList = new LinkedList<Tab>();
-        tabList.add(new Tab("tab 1", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 1\nContent of tab 1\nContent of tab 1\n")));
+        Label label = new Label("panel-content", "Some label");
+        MyPanel myPanel = new MyPanel(TabPanel.CONTENT_ID);
+        myPanel.add(label);
+        tabList.add(new Tab("tab 1", myPanel));
         tabList.add(new Tab("tab 2", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 2\nContent of tab 2\nContent of tab 2\nContent of tab 2\n")));
         tabList.add(new Tab("tab 3", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 3\nContent of tab 3\nContent of tab 3\n")));
         tabList.get(0).setHighlighted(true);
         TabbedAjaxPanel tabbedAjaxPanel = new TabbedAjaxPanel("tabbed-ajax-panel", tabList);
+        tabbedAjaxPanel.setJavascriptOnTabLoaded("initAccordion();");
         add(tabbedAjaxPanel);
         
         /*
@@ -56,6 +60,7 @@ public class HomePage extends WebPage {
         add(ajaxLink);
         */
         // Accordion Component.
+        
         LinkedList<AccordionItem> accordionItems = new LinkedList<AccordionItem>();
         for(int i = 0; i < 20; i++) {
             // Create some content panels
@@ -64,15 +69,7 @@ public class HomePage extends WebPage {
             contentPanel.add(repeatedLabel);
             accordionItems.add(new AccordionItem("title " + i, contentPanel));
         }
-        
         Accordion accordion = new Accordion("accordion", accordionItems);
         add(accordion);
-    }
-    // Write the required css and js files of the accordion to the html head.
-    @Override
-    public void renderHead(IHeaderResponse response) {
-        response.render(JavaScriptReferenceHeaderItem.forReference(Accordion.getJavascriptForHeader()));
-        response.render(CssReferenceHeaderItem.forReference(Accordion.getCssForHeader()));
-        response.render(CssReferenceHeaderItem.forReference(TabbedAjaxPanel.getCssForHeader()));
     }
 }

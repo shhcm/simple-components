@@ -5,18 +5,23 @@ import java.util.List;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
+import org.apache.wicket.markup.head.CssReferenceHeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.resource.CssResourceReference;
 
+import Accordion.Accordion;
+
 public class TabbedAjaxPanel extends Panel{
     
     private static final long serialVersionUID = -4310551046617566060L;
     private ListItem<Tab> currentTab;
     private ListItem<Tab> previousTab;
-    
+    private String javascriptOnTabLoaded = null;
+
     public TabbedAjaxPanel(String wicketId, List<Tab> tabList) {
         super(wicketId);
         
@@ -61,6 +66,9 @@ public class TabbedAjaxPanel extends Panel{
                         
                         target.add(previousTab);
                         target.add(currentTab);
+                        if(javascriptOnTabLoaded != null) {
+                            target.appendJavaScript(javascriptOnTabLoaded);
+                        }
                     }
                 };
                 Label label = new Label("tab-ajax-link-label", item.getModelObject().getTabName());
@@ -73,8 +81,24 @@ public class TabbedAjaxPanel extends Panel{
         add(tabPanel);
     }
     
+    public String getJavascriptOnTabLoaded() {
+        return javascriptOnTabLoaded;
+    }
+    /**
+     * Set a javascript that should be executed after a tab has loaded content via ajax.
+     * @param javascriptOnTabLoaded The js to be executed.
+     */
+    public void setJavascriptOnTabLoaded(String javascriptOnTabLoaded) {
+        this.javascriptOnTabLoaded = javascriptOnTabLoaded;
+    }
+    
     public static CssResourceReference getCssForHeader() {
         return new CssResourceReference(TabbedAjaxPanel.class, "TabbedAjaxPanel.css");
+    }
+    
+    @Override
+    public void renderHead(IHeaderResponse response) {
+        response.render(CssReferenceHeaderItem.forReference(TabbedAjaxPanel.getCssForHeader()));
     }
 
 }

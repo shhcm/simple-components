@@ -2,6 +2,9 @@ package Accordion;
 
 import java.util.List;
 
+import org.apache.wicket.markup.head.CssReferenceHeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.JavaScriptReferenceHeaderItem;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.repeater.RepeatingView;
 import org.apache.wicket.request.resource.CssResourceReference;
@@ -33,5 +36,10 @@ public class Accordion extends RepeatingView {
     }
     public static CssResourceReference getCssForHeader() {
         return new CssResourceReference(Accordion.class, "Accordion.css");
+    }
+    @Override
+    public void renderHead(IHeaderResponse response ) {
+        response.render(JavaScriptReferenceHeaderItem.forReference(Accordion.getJavascriptForHeader()));
+        response.render(CssReferenceHeaderItem.forReference(Accordion.getCssForHeader()));
     }
 }
