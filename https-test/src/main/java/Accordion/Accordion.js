@@ -1,5 +1,6 @@
 var initAccordion = function() {
-    $("div.accordion-item-outer-div div.accordion-item-title-div").click( function(event) {
+    console.log("Initialising accordion");
+    var accordionHeaderClickHandler = function(event) {
         var clicked_accordion_title = $(this);
         var sibling = clicked_accordion_title.next();
         if(sibling.css("display") == "none") {
@@ -7,7 +8,9 @@ var initAccordion = function() {
         } else {
             sibling.css("display", "none");
         }
-    });
+    }
+    $("div.accordion-item-outer-div div.accordion-item-title-div").off("click");
+    $("div.accordion-item-outer-div div.accordion-item-title-div").on("click", accordionHeaderClickHandler);
 }
 
 $(document).ready(initAccordion);
