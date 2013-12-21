@@ -1,5 +1,4 @@
 var initAccordion = function() {
-    console.log("Initialising accordion");
     var accordionHeaderClickHandler = function(event) {
         var clicked_accordion_title = $(this);
         var sibling = clicked_accordion_title.next();
