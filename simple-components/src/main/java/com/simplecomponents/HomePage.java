@@ -19,7 +19,7 @@ import com.simplecomponents.tabbedajaxpanel.TabPanel;
 import com.simplecomponents.tabbedajaxpanel.TabbedAjaxPanel;
 @RequireHttps
 public class HomePage extends WebPage {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 3887031127365020010L;
 
     public HomePage(final PageParameters parameters) {
         super(parameters);
