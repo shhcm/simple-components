@@ -1,13 +1,13 @@
-package com.mycompany;
+package com.simplecomponents;
 
 import java.util.LinkedList;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import Accordion.Accordion;
-import Accordion.AccordionItem;
-import Accordion.AccordionPanel;
+import com.simplecomponents.accordion.Accordion;
+import com.simplecomponents.accordion.AccordionItem;
+import com.simplecomponents.accordion.AccordionPanel;
 
 public class SomeContentPanel extends Panel{
 

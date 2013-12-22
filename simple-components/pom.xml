@@ -21,11 +21,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mycompany</groupId>
-	<artifactId>https-test</artifactId>
+	<artifactId>simple-components</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-		<!-- TODO project name  -->
-	<name>quickstart</name>
+	<name>simple-components</name>
 	<description></description>
 	<!--
 		<organization>

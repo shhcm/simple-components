@@ -1,4 +1,4 @@
-package TabbedAjaxPanel;
+package com.simplecomponents.tabbedajaxpanel;
 
 import java.io.Serializable;
 

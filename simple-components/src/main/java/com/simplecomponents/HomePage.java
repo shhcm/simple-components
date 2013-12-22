@@ -1,4 +1,4 @@
-package com.mycompany;
+package com.simplecomponents;
 
 import java.util.LinkedList;
 
@@ -11,12 +11,12 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.html.WebPage;
 
-import TabbedAjaxPanel.Tab;
-import TabbedAjaxPanel.TabPanel;
-import TabbedAjaxPanel.TabbedAjaxPanel;
-import Accordion.Accordion;
-import Accordion.AccordionItem;
-import Accordion.AccordionPanel;
+import com.simplecomponents.accordion.Accordion;
+import com.simplecomponents.accordion.AccordionItem;
+import com.simplecomponents.accordion.AccordionPanel;
+import com.simplecomponents.tabbedajaxpanel.Tab;
+import com.simplecomponents.tabbedajaxpanel.TabPanel;
+import com.simplecomponents.tabbedajaxpanel.TabbedAjaxPanel;
 @RequireHttps
 public class HomePage extends WebPage {
     private static final long serialVersionUID = 1L;

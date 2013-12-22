@@ -1,4 +1,4 @@
-package TabbedAjaxPanel;
+package com.simplecomponents.tabbedajaxpanel;
 
 import org.apache.wicket.markup.html.panel.Panel;
 

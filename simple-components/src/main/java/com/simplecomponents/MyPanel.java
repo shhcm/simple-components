@@ -1,4 +1,4 @@
-package com.mycompany;
+package com.simplecomponents;
 
 import org.apache.wicket.markup.html.panel.Panel;
 

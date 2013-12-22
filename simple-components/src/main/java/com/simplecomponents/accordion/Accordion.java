@@ -1,4 +1,4 @@
-package Accordion;
+package com.simplecomponents.accordion;
 
 import java.util.List;
 

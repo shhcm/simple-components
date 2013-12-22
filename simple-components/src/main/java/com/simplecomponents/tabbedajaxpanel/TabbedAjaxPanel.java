@@ -1,4 +1,4 @@
-package TabbedAjaxPanel;
+package com.simplecomponents.tabbedajaxpanel;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.request.resource.CssResourceReference;
 
-import Accordion.Accordion;
+import com.simplecomponents.accordion.Accordion;
 
 public class TabbedAjaxPanel extends Panel{
     

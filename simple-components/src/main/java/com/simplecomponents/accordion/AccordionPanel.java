@@ -1,4 +1,4 @@
-package Accordion;
+package com.simplecomponents.accordion;
 
 import org.apache.wicket.markup.html.panel.Panel;
 
