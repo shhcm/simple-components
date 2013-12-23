@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.simplecomponents.WicketApplication;
+import com.simplecomponents.accordion.Accordion;
 
 /**
  * Simple test using the WicketTester
@@ -31,6 +32,7 @@ public class AccordionTest {
         tester.startPage(AccordionTestHomePage.class);
         // Then
         tester.assertRenderedPage(AccordionTestHomePage.class);
+        tester.assertComponent("accordion", Accordion.class);
         tester.assertEnabled("accordion");//accortion-item-title");
         // Initially, the three accordion items should be closed.
         tester.assertContains("(.*<div\\sclass=\"accordion\\-item\\-content\\-div\"\\s" +
