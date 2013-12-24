@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 
+import com.simplecomponents.examples.MyPanel;
+import com.simplecomponents.examples.SomeContentPanel;
 import com.simplecomponents.tabbedajaxpanel.Tab;
 import com.simplecomponents.tabbedajaxpanel.TabPanel;
 import com.simplecomponents.tabbedajaxpanel.TabbedAjaxPanel;

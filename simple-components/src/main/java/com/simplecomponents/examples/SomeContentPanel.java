@@ -1,4 +1,4 @@
-package com.simplecomponents;
+package com.simplecomponents.examples;
 
 import java.util.LinkedList;
 
@@ -16,7 +16,7 @@ public class SomeContentPanel extends Panel{
         Label label = new Label("content-of-panel", content);
         this.add(label);
         LinkedList<AccordionItem> accordionItems = new LinkedList<AccordionItem>();
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < 5; i++) {
             // Create some content panels
             Panel contentPanel = new MyPanel(AccordionPanel.CONTENT_ID);
             Label repeatedLabel = new Label("panel-content", "repeatedPanel " + i);

@@ -10,6 +10,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import com.simplecomponents.accordion.Accordion;
 import com.simplecomponents.accordion.AccordionItem;
 import com.simplecomponents.accordion.AccordionPanel;
+import com.simplecomponents.examples.MyPanel;
 
 public class AccordionTestHomePage extends WebPage{
 

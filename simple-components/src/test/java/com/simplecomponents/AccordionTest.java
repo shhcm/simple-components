@@ -5,8 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.simplecomponents.WicketApplication;
 import com.simplecomponents.accordion.Accordion;
+import com.simplecomponents.examples.WicketApplication;
 
 /**
  * Simple test using the WicketTester

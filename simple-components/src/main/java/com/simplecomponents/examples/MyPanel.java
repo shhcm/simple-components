@@ -1,4 +1,4 @@
-package com.simplecomponents;
+package com.simplecomponents.examples;
 
 import org.apache.wicket.markup.html.panel.Panel;
 

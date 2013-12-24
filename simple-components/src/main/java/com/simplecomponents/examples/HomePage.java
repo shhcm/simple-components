@@ -1,4 +1,4 @@
-package com.simplecomponents;
+package com.simplecomponents.examples;
 
 import java.util.LinkedList;
 
@@ -17,7 +17,7 @@ import com.simplecomponents.accordion.AccordionPanel;
 import com.simplecomponents.tabbedajaxpanel.Tab;
 import com.simplecomponents.tabbedajaxpanel.TabPanel;
 import com.simplecomponents.tabbedajaxpanel.TabbedAjaxPanel;
-@RequireHttps
+
 public class HomePage extends WebPage {
     private static final long serialVersionUID = 3887031127365020010L;
 
@@ -29,8 +29,8 @@ public class HomePage extends WebPage {
         MyPanel myPanel = new MyPanel(TabPanel.CONTENT_ID);
         myPanel.add(label);
         tabList.add(new Tab("tab 1", myPanel));
-        tabList.add(new Tab("tab 2", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 2\nContent of tab 2\nContent of tab 2\nContent of tab 2\n")));
-        tabList.add(new Tab("tab 3", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 3\nContent of tab 3\nContent of tab 3\n")));
+        tabList.add(new Tab("tab 2", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 2")));
+        tabList.add(new Tab("tab 3", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 3")));
         tabList.get(0).setHighlighted(true);
         TabbedAjaxPanel tabbedAjaxPanel = new TabbedAjaxPanel("tabbed-ajax-panel", tabList);
         tabbedAjaxPanel.setJavascriptOnTabLoaded("initAccordion();");
@@ -62,7 +62,7 @@ public class HomePage extends WebPage {
         // Accordion Component.
         
         LinkedList<AccordionItem> accordionItems = new LinkedList<AccordionItem>();
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < 10; i++) {
             // Create some content panels
             Panel contentPanel = new MyPanel(AccordionPanel.CONTENT_ID);
             Label repeatedLabel = new Label("panel-content", "repeatedPanel " + i);
