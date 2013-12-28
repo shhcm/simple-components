@@ -14,7 +14,7 @@ public class BasePage extends WebPage {
 
     public BasePage(final PageParameters pageParameters) {
         super(pageParameters);
-        
+        // TODO: meaningful examples.
         LinkedList<MultiLevelMenuItem> pageList = new LinkedList<MultiLevelMenuItem>();
         for(int i = 0; i < 10; i++) {
             MultiLevelMenuItem item = new MultiLevelMenuItem("page link " + i, HomePage.class);
