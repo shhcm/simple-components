@@ -1,20 +1,22 @@
 package com.simplecomponents.multilevelmenu;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 import org.apache.wicket.markup.html.WebPage;
 
-public class MultiLevelMenuItem {
+public class MultiLevelMenuItem implements Serializable{
+    private static final long serialVersionUID = -8853925022606271695L;
     private String name;
     private Class<? extends WebPage> target;
     private LinkedList<MultiLevelMenuItem> subMenu;
     
-    private MultiLevelMenuItem(String name, Class<? extends WebPage> target) {
+    public MultiLevelMenuItem(String name, Class<? extends WebPage> target) {
         this.name = name;
         this.target = target;
     }
     
-    private MultiLevelMenuItem(String name, LinkedList<MultiLevelMenuItem> subMenu) {
+    public MultiLevelMenuItem(String name, LinkedList<MultiLevelMenuItem> subMenu) {
         this.name = name;
         this.subMenu = subMenu;
     }

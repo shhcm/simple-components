@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
-    <head>
-        <meta charset="utf-8" />
-        <title>Apache Wicket Quickstart</title>
-        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
-        <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
-    </head>
-    <body>
-        <br/>
-        <br/>
-        <div wicket:id="tabbed-ajax-panel"/>
-        <!--<a href="" wicket:id="ajax-link">click it</a>
-        <div wicket:id="ajax-content"/>-->
-        <div style="margin:20px;"/>
-        
-        <div wicket:id="accordion"/>
     
+    <body>
+        <wicket:extend>
+            
+            <div wicket:id="tabbed-ajax-panel"/>
+            <!--<a href="" wicket:id="ajax-link">click it</a>
+            <div wicket:id="ajax-content"/>-->
+            <div style="margin:20px;"/>
+            
+            <div wicket:id="accordion"/>
+        </wicket:extend>
     </body>
 </html>

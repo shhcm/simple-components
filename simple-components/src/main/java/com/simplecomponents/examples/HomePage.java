@@ -14,16 +14,35 @@ import org.apache.wicket.markup.html.WebPage;
 import com.simplecomponents.accordion.Accordion;
 import com.simplecomponents.accordion.AccordionItem;
 import com.simplecomponents.accordion.AccordionPanel;
+import com.simplecomponents.multilevelmenu.MultiLevelMenu;
+import com.simplecomponents.multilevelmenu.MultiLevelMenuItem;
 import com.simplecomponents.tabbedajaxpanel.Tab;
 import com.simplecomponents.tabbedajaxpanel.TabPanel;
 import com.simplecomponents.tabbedajaxpanel.TabbedAjaxPanel;
 
-public class HomePage extends WebPage {
+public class HomePage extends BasePage {
     private static final long serialVersionUID = 3887031127365020010L;
 
     public HomePage(final PageParameters parameters) {
         super(parameters);
+        /*
+        LinkedList<MultiLevelMenuItem> pageList = new LinkedList<MultiLevelMenuItem>();
+        for(int i = 0; i < 10; i++) {
+            MultiLevelMenuItem item = new MultiLevelMenuItem("page link " + i, HomePage.class);
+            if(i < 5) {
+                LinkedList<MultiLevelMenuItem> subPageList = new LinkedList<MultiLevelMenuItem>();
+                for(int j = 0; j < 3; j++) {
+                    MultiLevelMenuItem subItem = new MultiLevelMenuItem("sub page link " + i, HomePage.class);
+                    subPageList.add(subItem);
+                }
+                item.setSubMenu(subPageList);
+            }
+            pageList.add(item);
+        }
         
+        MultiLevelMenu multiLevelMenu = new MultiLevelMenu("multi-level-menu", pageList);
+        add(multiLevelMenu);
+        */
         LinkedList<Tab> tabList = new LinkedList<Tab>();
         Label label = new Label("panel-content", "Some label");
         MyPanel myPanel = new MyPanel(TabPanel.CONTENT_ID);
@@ -36,30 +55,6 @@ public class HomePage extends WebPage {
         tabbedAjaxPanel.setJavascriptOnTabLoaded("initAccordion();");
         add(tabbedAjaxPanel);
         
-        /*
-        Label label = new Label("panel-content", "initial content");
-        // Create a container element whose content will be modifed via ajax.
-        // The element must be final, because it is accessed from within an inner class,
-        // but we will be able to modify its content.
-        final MyPanel panel = new MyPanel("ajax-content");
-        panel.setOutputMarkupId(true);
-        // Create an ajax link.
-        AjaxLink ajaxLink = new AjaxLink("ajax-link") {
-        
-            @Override
-            public void onClick(AjaxRequestTarget target) {
-                panel.remove("panel-content");
-                panel.add(new Label("panel-content","ajax-provided content"));
-                // The component that is modified via ajax must be added to the AjaxRequestTarget parameter.
-                target.add(panel);
-            }
-            
-        };
-        panel.add(label);
-        add(panel);
-        add(ajaxLink);
-        */
-        // Accordion Component.
         
         LinkedList<AccordionItem> accordionItems = new LinkedList<AccordionItem>();
         for(int i = 0; i < 10; i++) {
