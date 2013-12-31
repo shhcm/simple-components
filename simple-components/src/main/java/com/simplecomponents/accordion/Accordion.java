@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.wicket.markup.head.CssReferenceHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.JavaScriptReferenceHeaderItem;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.repeater.RepeatingView;
@@ -39,6 +40,7 @@ public class Accordion extends RepeatingView {
     }
     @Override
     public void renderHead(IHeaderResponse response ) {
+        response.render(JavaScriptHeaderItem.forReference(getApplication().getJavaScriptLibrarySettings().getJQueryReference()));
         response.render(JavaScriptReferenceHeaderItem.forReference(Accordion.getJavascriptForHeader()));
         response.render(CssReferenceHeaderItem.forReference(Accordion.getCssForHeader()));
     }
