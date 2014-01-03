@@ -25,9 +25,10 @@ public class MultiLevelMenu extends Panel {
             private static final long serialVersionUID = -3527363179584213016L;
             @Override
             protected void populateItem(ListItem<MultiLevelMenuItem> item) {
-                PageParameters pageParameters = new PageParameters();
-                BookmarkablePageLink<Void> link = new BookmarkablePageLink<Void>("multi-level-menu-repeated-link", item.getModelObject().getTarget(), pageParameters);
+                BookmarkablePageLink<Void> link = new BookmarkablePageLink<Void>("multi-level-menu-repeated-link", item.getModelObject().getTarget());
+                Label label = new Label("multi-level-menu-repeated-label", item.getModelObject().getName());
                 boolean isHighlighted = false;
+                
                 if(this.getPage().getClass() == item.getModelObject().getTarget()) {
                     link.add(new AttributeAppender("class", " multi-level-menu-repeated-link-highlighted"));
                     isHighlighted = true;
@@ -45,7 +46,6 @@ public class MultiLevelMenu extends Panel {
                     }
                     item.add(subMenu);
                 }
-                Label label = new Label("multi-level-menu-repeated-label", item.getModelObject().getName());
                 link.add(label);
                 item.add(link);
             }
@@ -58,9 +58,17 @@ public class MultiLevelMenu extends Panel {
         response.render(CssReferenceHeaderItem.forReference(
                 new CssResourceReference(MultiLevelMenu.class, "MultiLevelMenu.css")));
     }
-    
+    /**
+     * Utility function to determine whether a sub menu contains the highlighted (clicked) item.
+     * This cannot be done when the sub menu instance is constructed, because populateItem() of
+     * the corresponding ListView is called before rendering, and not while the instance is constructed.
+     * (A sub menu is not constructed by the constructor of its parent menu, but by populateItem(...) ).
+     * Implements a depth first search.
+     * @param itemList The items to search for the same link target as the current page.
+     * @param target The class of the current page.
+     * @return True if the itemList or any of its sub menus contains the target, otherwise false. 
+     */
     private static boolean containsCurrentPageAsTarget(List<MultiLevelMenuItem> itemList, Class<? extends Page> target) {
-        // Determine if this menu contains the item that should be highlighted.
         for(MultiLevelMenuItem item: itemList) {
             if(item.getTarget() == target) {
                 return true;

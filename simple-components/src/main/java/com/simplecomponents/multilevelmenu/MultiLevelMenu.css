@@ -1,3 +1,27 @@
+.multi-level-menu-repeated-div-link {
+    padding:2px;
+    border-top-left-radius:5px;
+    border-right:1px solid;
+    border-left:1px solid;
+    border-top:1px solid;
+    border-bottom:1px solid;
+    border-bottom-color:#C0C0C0;
+    background:linear-gradient(to bottom, #C0E2F8, #EFF7FC);
+    transition: background-color 0.6s;
+}
+
+.multi-level-menu-repeated-div-link:hover {
+    background:#F0EE58;
+}
+
 .multi-level-menu-repeated-sub-menu-div {
     margin-left:10px;
+}
+
+.multi-level-menu-repeated-link {
+    text-decoration:none;
+}
+
+.multi-level-menu-repeated-link-highlighted {
+    font-weight:bold;
 }
