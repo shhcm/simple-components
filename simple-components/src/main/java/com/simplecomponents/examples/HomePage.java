@@ -44,12 +44,12 @@ public class HomePage extends BasePage {
         add(multiLevelMenu);
         */
         LinkedList<Tab> tabList = new LinkedList<Tab>();
-        Label label = new Label("panel-content", "Some label");
+        Label label = new Label("panel-content", "This is a content panel of a tab.");
         MyPanel myPanel = new MyPanel(TabPanel.CONTENT_ID);
         myPanel.add(label);
-        tabList.add(new Tab("tab 1", myPanel));
-        tabList.add(new Tab("tab 2", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 2")));
-        tabList.add(new Tab("tab 3", new SomeContentPanel(TabPanel.CONTENT_ID, "Content of tab 3")));
+        tabList.add(new Tab("tab a", myPanel));
+        tabList.add(new Tab("tab b", new SomeContentPanel(TabPanel.CONTENT_ID, "Here's an accordion.")));
+        tabList.add(new Tab("tab c", new SomeContentPanel(TabPanel.CONTENT_ID, "Another accordion.")));
         tabList.get(0).setHighlighted(true);
         TabbedAjaxPanel tabbedAjaxPanel = new TabbedAjaxPanel("tabbed-ajax-panel", tabList);
         tabbedAjaxPanel.setJavascriptOnTabLoaded("initAccordion();");
@@ -60,7 +60,7 @@ public class HomePage extends BasePage {
         for(int i = 0; i < 10; i++) {
             // Create some content panels
             Panel contentPanel = new MyPanel(AccordionPanel.CONTENT_ID);
-            Label repeatedLabel = new Label("panel-content", "repeatedPanel " + i);
+            Label repeatedLabel = new Label("panel-content", "accordion panel " + i);
             contentPanel.add(repeatedLabel);
             accordionItems.add(new AccordionItem("title " + i, contentPanel));
         }

@@ -19,7 +19,7 @@ public class SomeContentPanel extends Panel{
         for(int i = 0; i < 5; i++) {
             // Create some content panels
             Panel contentPanel = new MyPanel(AccordionPanel.CONTENT_ID);
-            Label repeatedLabel = new Label("panel-content", "repeatedPanel " + i);
+            Label repeatedLabel = new Label("panel-content", "some content panel " + i);
             contentPanel.add(repeatedLabel);
             accordionItems.add(new AccordionItem("title " + i, contentPanel));
         }
