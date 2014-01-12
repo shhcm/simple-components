@@ -18,9 +18,9 @@ public class TabbedAjaxPanelPage extends BasePage{
 
     public TabbedAjaxPanelPage(PageParameters pageParameters) {
         super(pageParameters);
-        
+        String loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ornare elit. Praesent ut cursus ipsum. Pellentesque et turpis commodo, fringilla diam id, interdum magna. Proin quis sem adipiscing, pharetra tortor quis, pharetra est. Curabitur sed ullamcorper quam. Donec ac laoreet velit, id ornare enim. Integer congue enim venenatis euismod tempus. Praesent non nunc iaculis, pretium tortor vel, rhoncus dui. Aenean eget elementum justo. Donec at eleifend sem. Aliquam tempor, mauris id eleifend mollis, erat libero ultrices arcu, eu ornare erat sapien a metus. Duis congue mi quis purus vestibulum lobortis. Donec varius feugiat neque, ut elementum nisi posuere quis. Suspendisse ac posuere lorem, tincidunt tincidunt nibh. Donec a orci consequat, blandit lectus vel, pellentesque nulla.";
         LinkedList<Tab> tabList = new LinkedList<Tab>();
-        Label label = new Label("panel-content", "Some label");
+        Label label = new Label("panel-content", loremIpsum);
         MyPanel myPanel = new MyPanel(TabPanel.CONTENT_ID);
         myPanel.add(label);
         tabList.add(new Tab("tab 1", myPanel));

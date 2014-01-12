@@ -7,6 +7,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.simplecomponents.examples.accordion.AccordionDocumentationPage;
 import com.simplecomponents.examples.accordion.AccordionPage;
+import com.simplecomponents.examples.multilevelmenu.MultiLevelMenuDocumentationPage;
 import com.simplecomponents.examples.tabbedajaxpanel.TabbedAjaxPanelDocumentationPage;
 import com.simplecomponents.examples.tabbedajaxpanel.TabbedAjaxPanelPage;
 import com.simplecomponents.multilevelmenu.MultiLevelMenu;
@@ -34,22 +35,13 @@ public class BasePage extends WebPage {
         tabbedAjaxPanelSubPages.add(tabbedAjaxPanelDocumentationPageItem);
         tabbedAjaxPanelPageItem.setSubMenu(tabbedAjaxPanelSubPages);
         
+        MultiLevelMenuItem multiLevelMenuDocumentationPageItem = new MultiLevelMenuItem("MultiLevelMenu Documentation", MultiLevelMenuDocumentationPage.class);
+        
         pageList.add(homePageItem);
         pageList.add(accordionPageItem);
         pageList.add(tabbedAjaxPanelPageItem);
+        pageList.add(multiLevelMenuDocumentationPageItem);
         
-        /*for(int i = 0; i < 10; i++) {
-            MultiLevelMenuItem item = new MultiLevelMenuItem("page link " + i, HomePage.class);
-            if(i < 5) {
-                LinkedList<MultiLevelMenuItem> subPageList = new LinkedList<MultiLevelMenuItem>();
-                for(int j = 0; j < 3; j++) {
-                    MultiLevelMenuItem subItem = new MultiLevelMenuItem("sub page link " + i, HomePage.class);
-                    subPageList.add(subItem);
-                }
-                item.setSubMenu(subPageList);
-            }
-            pageList.add(item);
-        }*/
         MultiLevelMenu multiLevelMenu = new MultiLevelMenu("multi-level-menu", pageList);
         add(multiLevelMenu);
     }
