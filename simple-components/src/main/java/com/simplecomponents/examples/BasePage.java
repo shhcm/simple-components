@@ -2,9 +2,16 @@ package com.simplecomponents.examples;
 
 import java.util.LinkedList;
 
+import org.apache.wicket.markup.head.CssReferenceHeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.JavaScriptHeaderItem;
+import org.apache.wicket.markup.head.JavaScriptReferenceHeaderItem;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.request.resource.CssResourceReference;
+import org.apache.wicket.request.resource.JavaScriptResourceReference;
 
+import com.simplecomponents.accordion.Accordion;
 import com.simplecomponents.examples.accordion.AccordionDocumentationPage;
 import com.simplecomponents.examples.accordion.AccordionPage;
 import com.simplecomponents.examples.multilevelmenu.MultiLevelMenuDocumentationPage;
@@ -45,5 +52,13 @@ public class BasePage extends WebPage {
         MultiLevelMenu multiLevelMenu = new MultiLevelMenu("multi-level-menu", pageList);
         add(multiLevelMenu);
     }
-
+    public static CssResourceReference getCssForHeader() {
+        return new CssResourceReference(BasePage.class, "Accordion.css");
+    }
+    @Override
+    public void renderHead(IHeaderResponse response ) {
+        response.render(JavaScriptReferenceHeaderItem.forReference(new JavaScriptResourceReference(BasePage.class,"run_prettify.js")));
+        response.render(JavaScriptReferenceHeaderItem.forReference(new JavaScriptResourceReference(BasePage.class,"prettify.js")));
+        response.render(CssReferenceHeaderItem.forReference(new CssResourceReference(BasePage.class, "prettify.css")));
+    }
 }

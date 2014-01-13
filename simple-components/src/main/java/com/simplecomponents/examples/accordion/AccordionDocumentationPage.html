@@ -8,19 +8,19 @@
             <h2>Create a list of AccordionItem's</h2>
             <p>Each AccordionItem holds a reference to a panel that defines the content. This panel will be displayed on a click to the corresponding accordion header.</p>
             <h2>Create the actual accordion instance</h2>
-            <p>
-                LinkedList&lt;AccordionItem&gt; accordionItems = new LinkedList&lt;AccordionItem&gt;();<br/>
+            <pre class="prettyprint">
+                LinkedList&lt;AccordionItem&gt; accordionItems = new LinkedList&lt;AccordionItem&gt;();
                 
-                for(int i = 0; i &lt; 10; i++) {<br/>
-                    // Create some content panels<br/>
-                    Panel contentPanel = new MyPanel(AccordionPanel.CONTENT_ID);<br/>
-                    Label repeatedLabel = new Label("panel-content", "repeatedPanel " + i);<br/>
-                    contentPanel.add(repeatedLabel);<br/>
-                    accordionItems.add(new AccordionItem("title " + i, contentPanel));<br/>
-                }<br/>
-                Accordion accordion = new Accordion("accordion", accordionItems);<br/>
-                add(accordion);<br/>
-            </p>
+                for(int i = 0; i &lt; 10; i++) {
+                    // Create some content panels
+                    Panel contentPanel = new MyPanel(AccordionPanel.CONTENT_ID);
+                    Label repeatedLabel = new Label("panel-content", "repeatedPanel " + i);
+                    contentPanel.add(repeatedLabel);
+                    accordionItems.add(new AccordionItem("title " + i, contentPanel));
+                }
+                Accordion accordion = new Accordion("accordion", accordionItems);
+                add(accordion);
+            </pre>
         </wicket:extend>
     </body>
 </html>
