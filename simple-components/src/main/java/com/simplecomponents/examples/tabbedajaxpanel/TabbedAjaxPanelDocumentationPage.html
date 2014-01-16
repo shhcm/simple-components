@@ -4,6 +4,29 @@
     <body>
         <wicket:extend>
             <h1>TabbedAjaxPanel Documentation</h1>
+            <h2>Create a div with a wicket id to which we can assign the TabbedAjaxPanel</h2>
+            <pre  class="prettyprint">
+                &lt;!DOCTYPE html&gt;
+                &lt;html xmlns:wicket="http://wicket.apache.org"&gt;
+                    &lt;body&gt;
+                        &lt;!-- other content --&gt;
+                        &lt;div wicket:id="tabbed-ajax-panel"/&gt;
+                        &lt;!-- other content --&gt;
+                    &lt;/body&gt;
+                &lt;/html&gt;
+            </pre>
+            <h2>Create a list of Tab's and the TabbedAjaxPanel instance</h2>
+            <pre class="prettyprint">
+                LinkedList&lt;Tab&gt; tabList = new LinkedList&lt;Tab&gt;();
+                tabList.add(new Tab("tab 1", new PanelA(TabPanel.CONTENT_ID)));
+                tabList.add(new Tab("tab 2", new PanelB(TabPanel.CONTENT_ID)));
+                tabList.add(new Tab("tab 3", new PanelC(TabPanel.CONTENT_ID)));
+                tabList.get(0).setHighlighted(true); // First tab should be highlighted.
+                TabbedAjaxPanel tabbedAjaxPanel = new TabbedAjaxPanel("tabbed-ajax-panel", tabList);
+                // You may want to run a JS function when tab content is
+                // added via ajax, e.g. for initializing some tab content.
+                tabbedAjaxPanel.setJavascriptOnTabLoaded("initAccordion();");
+            </pre>
         </wicket:extend>
     </body>
 </html>
