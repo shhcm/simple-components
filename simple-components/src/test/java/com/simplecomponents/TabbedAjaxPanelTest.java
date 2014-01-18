@@ -26,9 +26,9 @@ public class TabbedAjaxPanelTest {
     @Test
     public void tabbedAjaxPanelRendersSuccessfully() {
         // Given
-        
-        // When
         tester.startPage(TabbedAjaxPanelHomePage.class);
+        // When
+        
         // Then
         tester.assertRenderedPage(TabbedAjaxPanelHomePage.class);
         tester.assertComponent("tabbed-ajax-panel", TabbedAjaxPanel.class);
@@ -42,28 +42,28 @@ public class TabbedAjaxPanelTest {
     @Test
     public void clickOnTab1LoadsCorrectPanel() {
         // Given
-        
-        // When
         tester.startPage(TabbedAjaxPanelHomePage.class);
+        // When
         tester.clickLink("tabbed-ajax-panel:tabbed-ajax-panel-tab-span:0:tab-ajax-link-link");
+        // Then
         tester.assertContains("Content of tab 1");
     }
     @Test
     public void clickOnTab2LoadsCorrectPanel() {
         // Given
-        
-        // When
         tester.startPage(TabbedAjaxPanelHomePage.class);
+        // When
         tester.clickLink("tabbed-ajax-panel:tabbed-ajax-panel-tab-span:1:tab-ajax-link-link");
+        // Then
         tester.assertContains("Content of tab 2");
     }
     @Test
     public void clickOnTab3LoadsCorrectPanel() {
         // Given
-        
-        // When
         tester.startPage(TabbedAjaxPanelHomePage.class);
+        // When
         tester.clickLink("tabbed-ajax-panel:tabbed-ajax-panel-tab-span:2:tab-ajax-link-link");
+        // Then
         tester.assertContains("Content of tab 3");
     }
 }

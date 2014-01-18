@@ -7,10 +7,78 @@
             <p>
                 The base page needs to contain a div with a wicket id to which we can assign the menu.
             </p>
-            <h2>Add the menu in the constructor of the base page</h2>
+            <pre class="prettyprint">
+            
+                &lt;!DOCTYPE html&gt;
+                &lt;html xmlns:wicket="http://wicket.apache.org"&gt;
+                    &lt;!-- header --&gt;
+                    &lt;body&gt;
+                        &lt;div&gt;
+                            &lt;div style="float:left;width:20%;margin-right:20px;"&gt;
+                                &lt;div wicket:id="multi-level-menu"/&gt;
+                            &lt;/div&gt;
+                            &lt;div style="float:left;width:75%;"&gt;
+                                &lt;!--your page content goes here--&gt;
+                                &lt;wicket:child /&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/body&gt;
+                &lt;/html&gt;
+            </pre>
+            <pre class="prettyprint">
+
+                public class BasePage extends WebPage {
+                    public BasePage(final PageParameters pageParameters) {
+                        super(pageParameters);
+                        LinkedList&lt;MultiLevelMenuItem&gt; pageList = new LinkedList&lt;MultiLevelMenuItem&gt;();
+                        MultiLevelMenu multiLevelMenu = new MultiLevelMenu("multi-level-menu", pageList);
+                        add(multiLevelMenu);
+                    }
+                }
+            </pre>
             <h2>Create other pages that inherit from the base page</h2>
-            <h2>Create a LinkedList of MultiLevelMenuItem's that defines the first level of the menu</h2>
-            <h2>Add a submenu to any of the first level menu items</h2>
+            <pre class="prettyprint">
+            
+                &lt;!DOCTYPE html&gt;
+                &lt;html xmlns:wicket="http://wicket.apache.org"&gt;
+                    
+                    &lt;body&gt;
+                        &lt;wicket:extend&gt;
+                            &lt;!-- Add page content. --&gt;
+                        &lt;/wicket:extend&gt;
+                    &lt;/body&gt;
+                &lt;/html&gt;
+            </pre>
+            <pre class="prettyprint">
+            
+                public class PageA extends BasePage{
+                    public PageA(final PageParameters pageParameters) {
+                        super(pageParameters);
+                        // Add page content.
+                    }
+                
+                }
+            </pre>
+            
+            <h2>Add MultiLevelMenuItem's to the page list that define the menu links and levels</h2>
+            <pre class="prettyprint">
+            
+                LinkedList&lt;MultiLevelMenuItem&gt; pageList = new LinkedList&lt;MultiLevelMenuItem&gt;();
+                MultiLevelMenuItem homePageItem = new MultiLevelMenuItem("Home Page", HomePage.class);
+               
+                MultiLevelMenuItem PageAMenuItem = new MultiLevelMenuItem("Page A", PageA.class);
+                MultiLevelMenuItem PageBMenuItem = new MultiLevelMenuItem("Page B", PageB.class);
+                MultiLevelMenuItem PageCMenuItem = new MultiLevelMenuItem("Page C", PageC.class);
+                // Page C has subpages.
+                MultiLevelMenuItem PageC1MenuItem = new MultiLevelMenuItem("Page C1", PageC1.class);
+                LinkedList&lt;MultiLevelMenuItem&gt; pageCSubPagesList = new LinkedList&lt;MultiLevelMenuItem&gt;();
+                pageCSubPagesList.add(PageC1MenuItem); // Other subpages may be added just like this.
+                PageCMenuItem.setSubMenu(pageCSubPagesList);
+                
+                pageList.add(PageAMenuItem);
+                pageList.add(PageBMenuItem);
+                pageList.add(PageCMenuItem);
+            </pre>
         </wicket:extend>
     </body>
 </html>

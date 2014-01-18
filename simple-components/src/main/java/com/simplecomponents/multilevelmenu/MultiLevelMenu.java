@@ -37,7 +37,7 @@ public class MultiLevelMenu extends Panel {
                 if(item.getModelObject().getSubMenu() != null) {
                     MultiLevelMenu subMenu = new MultiLevelMenu("multi-level-menu-repeated-sub-menu", item.getModelObject().getSubMenu());
                     subMenu.setVisible(false);
-                    // Note the recursion: if this sub menu contains the highlighted item,
+                    // If this sub menu contains the highlighted item,
                     // then this menu as its parent must also be visible.
                     // If this item is the recently clicked (thus highlighted) item,
                     // then the sub menu must be visible.
