@@ -1,4 +1,4 @@
-package com.simplecomponents;
+package com.simplecomponents.tabbedajaxpanel;
 
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.list.ListView;
@@ -26,11 +26,11 @@ public class TabbedAjaxPanelTest {
     @Test
     public void tabbedAjaxPanelRendersSuccessfully() {
         // Given
-        tester.startPage(TabbedAjaxPanelHomePage.class);
+        tester.startPage(TabbedAjaxPanelTestHomePage.class);
         // When
         
         // Then
-        tester.assertRenderedPage(TabbedAjaxPanelHomePage.class);
+        tester.assertRenderedPage(TabbedAjaxPanelTestHomePage.class);
         tester.assertComponent("tabbed-ajax-panel", TabbedAjaxPanel.class);
         tester.assertComponent("tabbed-ajax-panel:tabbed-ajax-panel-tab-span", ListView.class);
         tester.assertComponent("tabbed-ajax-panel:tabbed-ajax-panel-tab-span:0:tab-ajax-link-link", AjaxLink.class);
@@ -42,7 +42,7 @@ public class TabbedAjaxPanelTest {
     @Test
     public void clickOnTab1LoadsCorrectPanel() {
         // Given
-        tester.startPage(TabbedAjaxPanelHomePage.class);
+        tester.startPage(TabbedAjaxPanelTestHomePage.class);
         // When
         tester.clickLink("tabbed-ajax-panel:tabbed-ajax-panel-tab-span:0:tab-ajax-link-link");
         // Then
@@ -51,7 +51,7 @@ public class TabbedAjaxPanelTest {
     @Test
     public void clickOnTab2LoadsCorrectPanel() {
         // Given
-        tester.startPage(TabbedAjaxPanelHomePage.class);
+        tester.startPage(TabbedAjaxPanelTestHomePage.class);
         // When
         tester.clickLink("tabbed-ajax-panel:tabbed-ajax-panel-tab-span:1:tab-ajax-link-link");
         // Then
@@ -60,7 +60,7 @@ public class TabbedAjaxPanelTest {
     @Test
     public void clickOnTab3LoadsCorrectPanel() {
         // Given
-        tester.startPage(TabbedAjaxPanelHomePage.class);
+        tester.startPage(TabbedAjaxPanelTestHomePage.class);
         // When
         tester.clickLink("tabbed-ajax-panel:tabbed-ajax-panel-tab-span:2:tab-ajax-link-link");
         // Then

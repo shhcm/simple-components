@@ -1,4 +1,4 @@
-package com.simplecomponents;
+package com.simplecomponents.accordion;
 
 import org.apache.wicket.util.tester.WicketTester;
 import org.junit.After;

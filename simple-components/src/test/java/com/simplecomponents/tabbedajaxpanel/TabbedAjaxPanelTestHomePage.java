@@ -1,4 +1,4 @@
-package com.simplecomponents;
+package com.simplecomponents.tabbedajaxpanel;
 
 import java.util.LinkedList;
 
@@ -11,11 +11,11 @@ import com.simplecomponents.tabbedajaxpanel.Tab;
 import com.simplecomponents.tabbedajaxpanel.TabPanel;
 import com.simplecomponents.tabbedajaxpanel.TabbedAjaxPanel;
 
-public class TabbedAjaxPanelHomePage extends WebPage{
+public class TabbedAjaxPanelTestHomePage extends WebPage{
 
     private static final long serialVersionUID = 6546796359662225200L;
 
-    public TabbedAjaxPanelHomePage() {
+    public TabbedAjaxPanelTestHomePage() {
         LinkedList<Tab> tabList = new LinkedList<Tab>();
         Label label = new Label("panel-content", "Some label");
         MyPanel myPanel = new MyPanel(TabPanel.CONTENT_ID);

@@ -1,4 +1,4 @@
-package com.simplecomponents;
+package com.simplecomponents.accordion;
 
 import java.util.LinkedList;
 
